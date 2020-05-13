@@ -1,19 +1,19 @@
-<headerclass="navbar navbar-fixed-top navbar-inverse">
-<divclass="container">
+<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
 <%=link_to"News", root_path,id:"logo"%>
-<nav><ulclass="nav navbar-nav navbar-right"><li>
+<nav><ul class="nav navbar-nav navbar-right"><li>
 <%=link_to"Home", root_path%></li><li>
 <%=link_to"News", root_path%></li><li>
 <%=link_to"Profile", root_path%></li><li>
 <%if logged_in?%>
 <li><%=link_to"Users",'#'%></li>
-<liclass="dropdown">
-<ahref="#" class="dropdown-toggle" data-toggle="dropdown">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 Account <b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><%=link_to"Profile", current_user%></li>
 <li><%=link_to"Settings",'#'%></li>
-<liclass="divider"></li>
+<li class="divider"></li>
 <li>
 <%=link_to "Log out", logout_path, method: :delete%>
 </li>
