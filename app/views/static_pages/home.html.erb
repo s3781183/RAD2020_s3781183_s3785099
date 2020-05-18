@@ -1,4 +1,12 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
-
+<% provide(:title) %>
+ <div class="row">
+ <aside class="span4">
+ <section>
+ <h1>
+ <% @users.each do |user|%>
+    <p><%= gravatar_for user %></p>
+ <%end%>   
+ </h1>
+ </section>
+ </aside>
 
