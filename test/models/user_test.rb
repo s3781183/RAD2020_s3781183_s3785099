@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup 
-    @user=User.new(name:"RAD", email:"user@example.com", password:"Rails2020", password_confirmation: "Rails2020")  
+    @user=User.new(name:"RAD", mobile: "0450 840 293", email:"user@example.com", password:"Rails2020", password_confirmation: "Rails2020")  
   end
   
   test "should be valid" do
@@ -13,12 +13,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name should be present" do
-    @user.name=""
+    @user.name="   "
     assert_not @user.valid?
   end
 
   test "email should be present" do
-    @user.email=""
+    @user.email="    "
     assert_not @user.valid?
   end
 
@@ -28,12 +28,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should not be too long" do
-    @user.email="a"*244+"@example.com"
+    @user.email="a"*244
     assert_not @user.valid?
   end
 
   test "email validation should accept valid addresses" do
-    valid_addresses=%w[user@example.com USER@foo.COM A_US-ER@foo.bar.orgfirst.last@foo.jp alice+bob@baz.cn]
+    valid_addresses=%w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
       @user.email=valid_address
       assert @user.valid?, "#{valid_address.inspect} should be valid"
@@ -42,6 +42,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "email addresses should be unique" do
     duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
   end
@@ -53,7 +54,7 @@ class UserTest < ActiveSupport::TestCase
 
   test"password should have a minimum length"do
     @user.password=@user.password_confirmation="a"*5
-    assert_not@user.valid?
+    assert_not @user.valid?
 end 
 
 
@@ -61,5 +62,13 @@ end
   test "authenticated? should return false for a user with nil digest" do   
     assert_not @user.authenticated?('')   
   end 
+
+  test"associated microposts should be destroyed"do
+    @user.save
+    @user.microposts.create!(content:"Lorem ipsum")
+    assert_difference'Micropost.count',-1 do
+    @user.destroy
+  end
+end
 end
 end
