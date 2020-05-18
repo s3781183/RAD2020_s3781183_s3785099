@@ -1,29 +1,41 @@
 <% provide(:title) %>
  <div class="row">
- <aside class="span4">
- <section>
- <h1>
- <% @users.each do |user|%>
-    <p><%= gravatar_for user %></p>
- <%end%>   
- </h1>
- </section>
- </aside>
+ <div class="leftcolumn">
+ <%=link_to "Recent Post", '#', class: "button"%>
+ <%=link_to "Selected Post",'#', class: "button"%>
+ <%=link_to "My Setting", '#', class: "button"%>
+ <div class="rightcolumn">
+ <%=link_to "New Post", new_micropost_path, class: "button"%>
+ </div>
+   <div class="card">
+     <h5>Recent Post</h5>
+     <p>Some text..</p>
+   </div>
+ </div>
+ <div class="rightcolumn">
+   <div class="card">
+     <h3>Recent Members</h3>
+     <% @users.each do |user|%>
+        <p><%= gravatar_for user %></p>
+     <%end%>  
+        </div>
+   <div class="card">
+     <h3>Topic</h3>
+     <%=link_to "A.I", '#', class: "round_button"%>
+     <%=link_to "Game", '#', class: "round_button"%>
+     <%=link_to "Rmit", '#', class: "round_button"%>
+     <%=link_to "V.R.", '#', class: "round_button"%>
 
-       <div class="span8">
-          <% if @user.microposts.any? %>
-        <% if @user.microposts.any? %>
-            <h3>Microposts (<%= @user.microposts.count %>)</h3>
-           <ol class="microposts">
-                  <li>
-                    <span class="content"><%= micropost.content %></span>
-                   <span class="timestamp">
-                    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-                    </span>
-                  </li>
-            </ol>
-            <%= will_paginate @microposts %>
-        <% end %>
-            <% end %>
-       </div>
-      </div> 
+   </div>
+   <div class="card">
+     <h3>Post</h3>
+     <p>Some text..</p>
+   </div>
+   <div class="card">
+   <h3>Links</h3>
+   <%=link_to "Rails", '#', class: "round_button"%>
+   <%=link_to "Rmit", '#', class: "round_button"%>
+   <%=link_to "Docs.", '#', class: "round_button"%>
+ </div>
+ </div>
+</div>
