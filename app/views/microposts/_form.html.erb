@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+<div class="field">
+    <%= form.label :topic %>
+    <%= form.select(:topic, Micropost::TITLE_LIST) %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.label :title %>
+    <%= form.text_area :title, placeholder: "Enter post title Here"%>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :content , :cols => 40, :rows => 30 ,placeholder: "Enter your post here" %>
   </div>
 
   <div class="actions">
