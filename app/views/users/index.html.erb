@@ -1,7 +1,13 @@
-<h1>All users</h1>
-<%=will_paginate%>
+<% provide(:'All User') %>
+ <h1>All users</h1>
+ <%=will_paginate%>
+ 
 <ul class="users">
-<%=render @users%>
+ <% @users.each do |user|%>
+ <p><%= gravatar_for user %></p>
+ <p><%=link_to user.email, user%></p>
+ <% end %> 
+
 </ul>
-<%=will_paginate%>
+ <%=will_paginate%>
 
