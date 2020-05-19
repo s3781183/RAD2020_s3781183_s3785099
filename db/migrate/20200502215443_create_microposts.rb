@@ -1,6 +1,7 @@
 class CreateMicroposts < ActiveRecord::Migration[5.2]
   def change
     create_table :microposts do |t|
+      add_column :microposts, :user_id :integer
       t.text :topic
       t.text :title
       t.text :content

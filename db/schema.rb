@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_05_02_215443) do
   enable_extension "plpgsql"
 
   create_table "microposts", force: :cascade do |t|
+    t.text "topic"
+    t.text "title"
     t.text "content"
     t.bigint "user_id"
     t.datetime "created_at", null: false

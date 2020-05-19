@@ -1,6 +1,6 @@
-User.create!(user_id:"1"
+User.create!(
    name:"RAD",
-    mobile: "0450 840 293",
+    mobile: "0450840293",
     email:"user@example.com",
     password:"rails2020",
     password_confirmation:"rails2020")
