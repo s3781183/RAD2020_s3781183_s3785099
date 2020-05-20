@@ -17,13 +17,11 @@ ActiveRecord::Schema.define(version: 2020_05_20_101450) do
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "topic"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,10 +31,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_101450) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "mobile"
+    t.datetime "last_active"
     t.string "remember_digest"
     t.datetime "last_seen_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "microposts", "users"
 end
