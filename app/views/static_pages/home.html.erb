@@ -23,7 +23,7 @@
  <div class="rightcolumn">
    <div class="card">
      <h3>Recent Members</h3>
-     <% @users.each do |user|%>
+     <% @recentUsers.each do |user|%>
         <p><%= gravatar_for user %></p>
         <p><%=link_to user.email, user%></p>
      <%end%>  
