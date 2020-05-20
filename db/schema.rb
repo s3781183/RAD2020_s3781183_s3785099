@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_05_19_065344) do
+=======
+ActiveRecord::Schema.define(version: 2020_05_20_101450) do
+>>>>>>> ru_dev
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_065344) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "topic"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_065344) do
     t.string "password_digest"
     t.string "mobile"
     t.datetime "last_active"
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

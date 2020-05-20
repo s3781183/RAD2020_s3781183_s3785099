@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  
   resources :microposts
+  resources :users do
+    resources :microposts
+  end
   get 'users/new'
   resources :users
   get'/login' , to:'sessions#new'
