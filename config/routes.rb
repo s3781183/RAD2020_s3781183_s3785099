@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   
   resources :microposts
-  resources :users do
-    resources :microposts
-  end
+  
   get 'users/new'
   resources :users
   get'/login' , to:'sessions#new'
@@ -16,4 +14,5 @@ Rails.application.routes.draw do
   delete'/logout',to:'sessions#destroy'
   get'/signup' , to:'users#new'
   get '/micropost', to: 'microposts#new'
+  get '/topic/:topic', to: 'microposts#topic',as: 'topic'
 end

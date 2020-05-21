@@ -27,10 +27,10 @@
         </div>
    <div class="card">
      <h3>Topic</h3>
-     <%=link_to "A.I", '#', class: "round_button"%>
-     <%=link_to "Game", '#', class: "round_button"%>
-     <%=link_to "Rmit", '#', class: "round_button"%>
-     <%=link_to "V.R.", '#', class: "round_button"%>
+     <%=link_to "A.I", topic_path(:topic => "AI"), class: "round_button"%>
+     <%=link_to "Game", topic_path(:topic => "Game"), class: "round_button"%>
+     <%=link_to "Rmit", topic_path(:topic => "Rmit"), class: "round_button"%>
+     <%=link_to "V.R.", topic_path(:topic => "VR"), class: "round_button"%>
 
    </div>
    <div class="card">

@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= topic: %></p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @micropost.content %>
+  <% @micropost.each do |micropost|%>
+              <%=link_to gravatar_for(micropost.user,size:70), micropost.user%> 
+             <p><%=link_to micropost.user.email, micropost.user%></p>   
+             <p><%=link_to micropost.topic, micropost,micropost: micropost%></p>
+             <p><%=micropost.created_at%></p>
+         <%end%>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @micropost.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_micropost_path(@micropost) %> |
-<%= link_to 'Back', microposts_path %>

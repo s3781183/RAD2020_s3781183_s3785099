@@ -13,6 +13,11 @@ class MicropostsController < ApplicationController
   def show
   end
 
+  def topic
+    @micropost = Micropost.find(params[:topic])
+
+  end
+
   # GET /microposts/new
   def new
     @micropost = Micropost.new
@@ -68,6 +73,8 @@ class MicropostsController < ApplicationController
     def set_micropost
       @micropost = Micropost.find(params[:id])
     end
+
+   
 
     private
     # Only allow a list of trusted parameters through.
