@@ -15,11 +15,17 @@
     <ol class="microposts">
     <%=render @microposts%>
     </ol>
-    <%=will_paginate @microposts%>
     <%end%>
 </div>
 <div class="left-half">
       <h2>Recent Comment</h2>
+    <% if @user.comments.any?%>
+      <h3>Comments (<%=@user.comments.count%>)</h3>
+       <p><%=render @user.comments%> </p>
+       
+
+   </div>
+    <%end%>
 </div>
 
 </div>

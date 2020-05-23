@@ -10,22 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_05_19_065344) do
-=======
-ActiveRecord::Schema.define(version: 2020_05_20_101450) do
->>>>>>> ru_dev
+ActiveRecord::Schema.define(version: 2020_05_22_042652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "micropost_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "microposts", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "topic"
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,9 +43,13 @@ ActiveRecord::Schema.define(version: 2020_05_20_101450) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "mobile"
-    t.datetime "last_active"
     t.string "remember_digest"
+    t.datetime "last_seen_at"
+    t.datetime "last_active"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "microposts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "microposts", "users"
 end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     attr_accessor :remember_token
+    has_many :comments
     has_many :microposts
     default_scope -> { order(last_seen_at: :desc) }
     before_save{self.email=email.downcase}

@@ -10,10 +10,11 @@
    <div class="card">
      <h5>Recent Post</h5>
        <% @microposts.each do |micropost|%>
-              <%=link_to gravatar_for(micropost.user,size:70), micropost.user%> 
-             <p><%=link_to micropost.user.email, micropost.user%></p>   
-             <p><%=link_to micropost.title, micropost,micropost: micropost%></p>
-             <p><%=micropost.created_at%></p>
+            <br>  <p> <%=link_to gravatar_for(micropost.user,size:55), micropost.user%> 
+            <p> <h5><%=link_to micropost.title , micropost,micropost: micropost%></h5></p>
+           <p>  <%=link_to micropost.user.email , micropost.user%> 
+             <%=micropost.created_at %>
+             <%=micropost.topic %> </p>
          <%end%>
    </div>
  </div>

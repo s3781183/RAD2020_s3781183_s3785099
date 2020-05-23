@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
   end
 
   def topic
-    @micropost = Micropost.find(params[:topic])
+    @micropost = Micropost.where(topic: 'A.I.')
 
   end
 

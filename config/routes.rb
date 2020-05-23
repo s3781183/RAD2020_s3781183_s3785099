@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   
-  resources :microposts
+  resources :microposts do
+    resources :comments
+  end
   
   get 'users/new'
   resources :users

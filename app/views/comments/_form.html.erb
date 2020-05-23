@@ -1,0 +1,13 @@
+<%= form_for([@micropost,@micropost.comments.build]) do |form| %>
+
+
+<div class="field">
+    <%= form.text_area :body,placeholder: "Enter your comment here" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  
+<% end %>
