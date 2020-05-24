@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get'/profile' , to:'users#show'
 
   get '/micropost', to: 'microposts#new'
-  get '/topic/:topic', to: 'microposts#topic',as: 'topic'
+  get '/topic', to: 'static_pages#topic'
 end

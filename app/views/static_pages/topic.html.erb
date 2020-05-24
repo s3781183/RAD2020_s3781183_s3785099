@@ -1,14 +1,15 @@
 <% provide(:title) %>
  <div class="row">
  <div class="leftcolumn">
- <%=link_to "Recent Post", '#', class: "button"%>
+ <%=link_to "Recent Post", root_path, class: "button"%>
  <%=link_to "Selected Post",topic_path(:name => ""), class: "button"%>
  <%=link_to "My Setting", microposts_path, class: "button"%>
  <div class="rightcolumn">
  <%=link_to "New Post", new_micropost_path, class: "button"%>
  </div>
    <div class="card">
-     <h5>Recent Post</h5>
+     <h5>Selected Post</h5>
+     
        <% @microposts.each do |micropost|%>
             <br>  <p> <%=link_to gravatar_for(micropost.user,size:55), micropost.user%> 
             <p> <h5><%=link_to micropost.title , micropost,micropost: micropost%></h5></p>
@@ -16,6 +17,7 @@
              <%=micropost.created_at %>
              <%=micropost.topic %> </p>
          <%end%>
+      
    </div>
  </div>
  <div class="rightcolumn">
@@ -29,14 +31,14 @@
    <div class="card">
      <h3>Topic</h3>
      <%=link_to "A.I", topic_path(:name => "A.I"), class: "round_button"%>
-     <%=link_to "Game", topic_path(:name=>  "Game"), class: "round_button"%>
-     <%=link_to "Rmit", topic_path(:name => "Rmit"), class: "round_button"%>
+     <%=link_to "Game", topic_path(:name => "Game"), class: "round_button"%>
+     <%=link_to "Rmit", topic_path(:name=> "Rmit"), class: "round_button"%>
      <%=link_to "V.R.", topic_path(:name => "V.R."), class: "round_button"%>
 
    </div>
    <div class="card">
      <h3>Post</h3>
-      <% @microposts.each do |micropost|%>
+      <% @allMicroposts.each do |micropost|%>
              <p><%=link_to micropost.title, micropost,micropost: micropost%></p>
          <%end%>
    </div>
