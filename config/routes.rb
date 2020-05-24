@@ -10,13 +10,19 @@ Rails.application.routes.draw do
   end
   
   get 'users/new'
-  resources :users
+  resources :users do 
+    get 'edit/editPassword', :to => 'users#editPassword'
+    get 'edit/editVerification', :to => 'users#editVerification'
+    get 'edit/editAvatar', :to => 'users#editAvatar'
+  end
   get'/login' , to:'sessions#new'
   post'/login', to:'sessions#create'
   delete'/logout',to:'sessions#destroy'
   get'/signup' , to:'users#new'
   get'/profile' , to:'users#show'
   get'/edit' , to:'users#edit'
+ 
+  get 'edit/editPassword', :to => 'users#editPassword'
 
 
   get '/micropost', to: 'microposts#new'

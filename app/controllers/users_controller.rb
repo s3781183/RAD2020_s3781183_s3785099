@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action:set_last_seen_at, if: -> { logged_in? && (current_user.last_seen_at.nil? || current_user.last_seen_at < 15.minutes.ago) }
-  before_action:logged_in_user,only:[:index,:edit,:update]
+  before_action:logged_in_user,only:[:index,:edit,:update,:editPassword,:editVerification]
   # before_action:correct_user,only:[:edit,:update]
 
   def index
@@ -29,7 +29,18 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id]) 
-    @page
+  end
+
+  def editPassword
+    @user = User.find(params[:user_id]) 
+  end
+
+  def editVerification
+    @user = User.find(params[:user_id]) 
+  end
+
+  def editAvatar
+    @user = User.find(params[:user_id]) 
   end
 
   def update

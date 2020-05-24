@@ -27,11 +27,13 @@ ActiveRecord::Schema.define(version: 2020_05_23_174402) do
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "topic"
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,9 +43,9 @@ ActiveRecord::Schema.define(version: 2020_05_23_174402) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "mobile"
-    t.datetime "last_active"
     t.string "remember_digest"
     t.datetime "last_seen_at"
+    t.datetime "last_active"
     t.string "city"
     t.string "picture"
     t.string "card_image"
@@ -54,4 +56,5 @@ ActiveRecord::Schema.define(version: 2020_05_23_174402) do
 
   add_foreign_key "comments", "microposts"
   add_foreign_key "comments", "users"
+  add_foreign_key "microposts", "users"
 end

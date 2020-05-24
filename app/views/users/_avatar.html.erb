@@ -1,10 +1,10 @@
 <%=form_for(@user) do |f|%>
 <%= render 'shared/error_messages', object: @user %>
 <span class="picture">
-<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %><br>
 <%=image_tag current_user.picture.url if current_user.picture?%>
 </span>
-<%=f.submit"Confirm",class:"btn btn-primary"%>
+<%=f.submit"Confirm",class:"btn btn-primary"%><br>
 <%end%>
 <script type="text/javascript">
 $('#user_picture').bind('change', function() {
