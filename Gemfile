@@ -10,6 +10,8 @@ gem 'rails-ujs', '~> 0.1.0'
 gem 'bcrypt','3.1.12'
 gem 'bootstrap-sass', '3.3.7'
 gem 'rails-controller-testing'
+gem'carrierwave', '1.2.2'
+gem'mini_magick', '4.7.0'
 # Use postgresql as the database for Active Record
 # gem 'pg', '>= 0.18', '< 2.0'
 group :production do

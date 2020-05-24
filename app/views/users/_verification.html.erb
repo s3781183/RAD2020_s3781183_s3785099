@@ -1,0 +1,11 @@
+<%=form_for(@user)do|f|%>
+<%=f.label:card_type%>
+<%=f.text_field:card_type,class:'form-control'%>
+<%=f.label:card_number%>
+<%=f.text_field:card_number,class:'form-control'%>
+<%=f.file_field:card_image%>
+<span class="picture">
+<%=image_tag current_user.card_image.url if current_user.card_image?%>
+</span>
+<%=f.submit"Confirm",class:"btn btn-primary"%>
+<%end%>

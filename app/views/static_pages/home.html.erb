@@ -3,7 +3,8 @@
  <div class="leftcolumn">
  <%=link_to "Recent Post", '#', class: "button"%>
  <%=link_to "Selected Post",'#', class: "button"%>
- <%=link_to "My Setting", microposts_path, class: "button"%>
+ <%=link_to "My Setting", edit_user_path(current_user), class: "button"%>
+
  <div class="rightcolumn">
  <%=link_to "New Post", new_micropost_path, class: "button"%>
  </div>

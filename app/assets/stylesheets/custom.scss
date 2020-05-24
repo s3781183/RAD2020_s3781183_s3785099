@@ -296,3 +296,15 @@ footer {
   float: left;
   width: 50%;
 }
+/* Style tab links */
+.tabMenuItem {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}

@@ -1,0 +1,7 @@
+<%=form_for(@user) do |f|%>
+<span class="picture">
+<%= f.file_field :picture %>
+<%=image_tag current_user.picture.url if current_user.picture?%>
+</span>
+<%=f.submit"Confirm",class:"btn btn-primary"%>
+<%end%>

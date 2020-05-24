@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action:set_last_seen_at, if: -> { logged_in? && (current_user.last_seen_at.nil? || current_user.last_seen_at < 15.minutes.ago) }
   before_action:logged_in_user,only:[:index,:edit,:update]
-  before_action:correct_user,only:[:edit,:update]
+  # before_action:correct_user,only:[:edit,:update]
 
   def index
     @users = User.all
@@ -27,10 +27,29 @@ class UsersController < ApplicationController
     end   
   end
 
+  def edit
+    @user = User.find(params[:id]) 
+    @page
+  end
+
+  def update
+    @user = User.find(params[:id]) 
+    if @user.update_attributes(personal_info_params)
+      # Handle a successful update.
+      flash[:success]="Profile updated"
+      redirect_to edit_user_path
+      else
+        render'edit'
+    end
+  end
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation,:mobile)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:mobile, :picture, :card_image)
+  end
+
+  def personal_info_params
+    params.require(:user).permit(:name,:email,:mobile, :city)
   end
 
   def logged_in_user

@@ -5,7 +5,12 @@
     <%=gravatar_for @user%>
     <br>
     <%= @user.email %>
-    <h2><%= @user.created_at.strftime("%d-%m-%Y") %></h2>        
+    <h2>
+    <%= @user.created_at.strftime("%d-%m-%Y") %>
+    <% if @user.city!=nil%>
+    <%= @user.city %>
+    <%end%>
+    </h2>        
     </h1>
 </section>
 <div class="right-half">
@@ -22,8 +27,6 @@
     <% if @user.comments.any?%>
       <h3>Comments (<%=@user.comments.count%>)</h3>
        <p><%=render @user.comments%> </p>
-       
-
    </div>
     <%end%>
 </div>
