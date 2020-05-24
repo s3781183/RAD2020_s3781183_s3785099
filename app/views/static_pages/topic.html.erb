@@ -24,8 +24,7 @@
    <div class="card">
      <h3>Recent Members</h3>
      <% @recentUsers.each do |user|%>
-      <p><%= gravatar_for(user,size:50) %></p>
-      <p><%=link_to user.email, user%></p>
+      <p><%=link_to gravatar_for(user,size:50), user%></p>
      <%end%>  
         </div>
    <div class="card">
