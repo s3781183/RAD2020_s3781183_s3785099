@@ -7,6 +7,7 @@ class User < ApplicationRecord
     VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     validates :email,presence: true,length:{maximum:255}, format:{with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
     has_secure_password
+    validate :picture_size
 
     validates:password, presence: true, length: { minimum: 8 }, length: { maximum: 20 }, allow_nil: true
 
@@ -30,6 +31,13 @@ class User < ApplicationRecord
         return false if remember_digest.nil?
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
    end
+   private
+# Validates the size of an uploaded picture.
+    def picture_size
+        if picture.size > 2.megabytes
+            errors.add(:picture, "no larger than 2MB")
+        end
+    end
 
 
    def forget

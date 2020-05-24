@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
-    if @user.update_attributes(personal_info_params)
+    if @user.update_attributes(user_params)
       # Handle a successful update.
       flash[:success]="Profile updated"
       redirect_to edit_user_path
@@ -45,9 +45,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation,:mobile, :picture, :card_image)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:mobile, :card_type, :card_number, :card_image, :picture)
   end
-
   def personal_info_params
     params.require(:user).permit(:name,:email,:mobile, :city)
   end
