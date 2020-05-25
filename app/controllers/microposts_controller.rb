@@ -13,10 +13,6 @@ class MicropostsController < ApplicationController
   def show
   end
 
-  def topic
-    @micropost = Micropost.where(topic: 'A.I.')
-
-  end
 
   # GET /microposts/new
   def new

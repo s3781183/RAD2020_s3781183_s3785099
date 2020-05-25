@@ -1,0 +1,15 @@
+<div class="row">
+<br><br><h1>Your Comments</h1><br>
+<%=render 'sidebar'%>
+
+<% @microposts.each do |micropost|%>
+    <% if micropost.user.email == @user.email %>
+    
+    <br>  <p> Title of Post: <%=micropost.title%> 
+       <% :partial%> 
+
+            
+         <%end%>
+          <%end%>
+   
+</div>

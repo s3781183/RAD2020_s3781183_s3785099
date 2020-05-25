@@ -1,0 +1,12 @@
+<div class="row">
+<br><br><h1>Your Comments</h1><br>
+<%=render 'sidebar'%>
+
+<% @comments.each do |comment|%>
+    <% if comment.user.email == @user.email%>
+    <br>  <p> Title of Post: <%=comment.micropost.title%> 
+            <br>  <p>Comment on Post: "<%=comment.body%> ""
+           
+         <%end%>
+          <%end%>
+</div>

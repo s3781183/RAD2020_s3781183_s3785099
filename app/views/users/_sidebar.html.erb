@@ -7,9 +7,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">My Posts</a>
-      <%=link_to "My Comments", edit_user_path(@user), class: "nav-link"%>
+      <%=link_to "My Comments",  user_myprofile_myComments_path(@user), class: "nav-link"%>
     <li class="nav-item">
-    <%=link_to "Comments to me", edit_user_path(@user), class: "nav-link"%>
+    <%=link_to "Comments to me",  user_myprofile_commentToMe_path(@user), class: "nav-link"%>
   </li>
 
   </li>

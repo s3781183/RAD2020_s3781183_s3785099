@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <br><br>
-<%if @micropost.user_id==current_user.id%><br><br>
+
     <p>
           <strong>Topic:</strong>
           <%= @micropost.topic%>
@@ -22,30 +22,14 @@
         <p><%=render @micropost.comments%> </p>
     </p>
     <p>
+      <%if logged_in?%><br><br>
        <strong>Add a comment</strong>
       <%=render'comments/form'%>
+      <% end %>
     </p>
+    <%if @micropost.user_id==current_user.id%><br><br>
 
     <%= link_to 'Edit', edit_micropost_path(@micropost) %> 
     <%= link_to 'Back', microposts_path %>
-<% else %>
-     <p>
-          <strong>Topic:</strong>
-          <%= @micropost.topic%>
-      </p>
-    <p>
-      <strong>Title:</strong>
-      <%= @micropost.title%>
-    </p>
-
-    <p>
-      <strong>Content:</strong>
-      <%= @micropost.content%>
-    </p>
-
-    <p>
-      <strong>User:</strong>
-      <%= @micropost.user.email %>
-    </p>
 
 <% end %>
