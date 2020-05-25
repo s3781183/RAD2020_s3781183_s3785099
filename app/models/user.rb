@@ -9,9 +9,8 @@ class User < ApplicationRecord
     has_secure_password
     validate :picture_size
 
-    validates:password, presence: true, length: { minimum: 8 }, length: { maximum: 20 }, allow_nil: true
-
-    validates:mobile, presence: true, length: { minimum: 10 }, length: { maximum: 13 }
+    validates:password, presence: true, length: { minimum: 8 ,maximum: 20 }, allow_nil: true
+    validates:mobile, presence: true, length: { minimum: 10, maximum: 13 }
     mount_uploader :picture, PictureUploader
     mount_uploader :card_image, PictureUploader
     def self.digest(string)
