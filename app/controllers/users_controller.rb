@@ -53,13 +53,14 @@ class UsersController < ApplicationController
         render'edit'
     end
   end
+
+  def myPost
+    @user = User.find(params[:user_id]) 
+  end
   private
 
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation,:mobile, :card_type, :card_number, :card_image, :picture)
-  end
-  def personal_info_params
-    params.require(:user).permit(:name,:email,:mobile, :city)
   end
 
   def logged_in_user
