@@ -1,27 +1,7 @@
 <div class="row">
 <br><br><h1>Update Your Profile</h1><br>
-<div class="col-sm-3 sidebar">
-<nav class="navbar bg-light">
-  <!-- Links -->
-  <ul class="nav nav-sidebar">
-    <li class="nav-item">
-      <%=link_to "My Profile", current_user, class: "nav-link"%>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">My Posts</a>
-      <%=link_to "My Comments", edit_user_path(@user), class: "nav-link"%>
-    <li class="nav-item">
-    <%=link_to "Comments to me", edit_user_path(@user), class: "nav-link"%>
-  </li>
+<%=render 'sidebar'%>
 
-  </li>
-  <li class="nav-item">
-    <%=link_to "My Setting", edit_user_path(@user), class: "nav-link"%>
-
-  </li>
-  </ul>
-</nav>
-</div>
 <div class="col-sm-6 navbar">
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
 <ul class="navbar-nav">
@@ -37,13 +17,6 @@
 
 <%=render 'avatar'%>
 
-
-
-<% if @user.comments.any?%>
-      <h3>Comments (<%=@user.comments.count%>)</h3>
-       <p><%=render @user.comments%> </p>
-   </div>
-    <%end%>
 </div>
 </div>
 </div>
