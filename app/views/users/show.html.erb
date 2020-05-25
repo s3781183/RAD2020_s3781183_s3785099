@@ -1,17 +1,17 @@
 <% provide(:title, @user.email) %> 
 <div class="row">
 <section class="card">
-    <h1>
-    <%=gravatar_for @user%>
-    <br>
-    <%= @user.email %>
-    <h2>
-    <%= @user.created_at.strftime("%d-%m-%Y") %>
-    <% if @user.city!=nil%>
-    <%= @user.city %>
-    <%end%>
-    </h2>        
-    </h1>
+  <h1>
+  <%=gravatar_profile @user%>
+  <br>
+  <%= @user.email %>
+  <h2>
+  <%= @user.created_at.strftime("%d-%m-%Y") %>
+  <% if @user.city!=nil%>
+  <%= @user.city %>
+  <%end%>
+  </h2>        
+  </h1>
 </section>
 <div class="right-half">
       <h2>Recent Post</h2>
