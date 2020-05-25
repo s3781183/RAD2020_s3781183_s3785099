@@ -1,12 +1,21 @@
 <div class="row">
 <br><br><h1>Your Comments</h1><br>
 <%=render 'sidebar'%>
+<div class="col-sm-6 navbar">
 
+
+<h3> Comments (<%=@user.comments.count%>)</h3>  <p> 
 <% @comments.each do |comment|%>
     <% if comment.user.email == @user.email%>
-    <br>  <p> Title of Post: <%=comment.micropost.title%> 
-            <br>  <p>Comment on Post: "<%=comment.body%> ""
-           
+    <%=link_to gravatar_for(comment.user,size:50), comment.user%>
+     <span class="user"><%=link_to comment.user.email, comment.user%></span>
+    <p> <span class="topic">Comment: "<%=link_to comment.body,comment.micropost %></span>""
+          Posted <%=time_ago_in_words(comment.created_at)%> ago.</p>
+             </span>
+  </li>
          <%end%>
           <%end%>
 </div>
+</div>
+
+</p>

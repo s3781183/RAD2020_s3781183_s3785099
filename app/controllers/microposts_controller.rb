@@ -11,6 +11,8 @@ class MicropostsController < ApplicationController
   # GET /microposts/1
   # GET /microposts/1.json
   def show
+    @micropost.view =+ 1
+    @micropost.save
   end
 
 

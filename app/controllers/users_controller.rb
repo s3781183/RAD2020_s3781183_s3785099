@@ -47,12 +47,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id]) 
     @microposts=Micropost.all
     @comments = Comment.all
-    render :partial => @micropost.@comment
   end
 
   def commentToUser
     @user = User.find(params[:user_id]) 
-    @microposts=Micropost.all
+    @microposts=Micropost.where(:user_id==current_user.id) 
     @comments = Comment.all
   end
 

@@ -14,12 +14,10 @@ Rails.application.routes.draw do
     get 'edit/editPassword', :to => 'users#editPassword'
     get 'edit/editVerification', :to => 'users#editVerification'
     get 'edit/editAvatar', :to => 'users#editAvatar'
-<<<<<<< HEAD
     get 'myprofile/myComments', :to => 'users#allUserComment'
     get 'myprofile/commentToMe', :to => 'users#commentToUser'
-=======
     get '/myPost', :to => 'users#myPost'
->>>>>>> b06892fac4f9ab445fe0a8c9172c7e7916e6a454
+
   end
   get'/login' , to:'sessions#new'
   post'/login', to:'sessions#create'

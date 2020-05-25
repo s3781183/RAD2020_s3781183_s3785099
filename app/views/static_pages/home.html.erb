@@ -12,12 +12,14 @@
    <div class="card">
      <h5>Recent Post</h5>
        <% @microposts.each do |micropost|%>
+       <ol class="microposts">
             <br>  <p> <%=link_to gravatar_for(micropost.user,size:55), micropost.user%> 
             <p> <h5><%=link_to micropost.title , micropost,micropost: micropost%></h5></p>
            <p>  <%=link_to micropost.user.email , micropost.user%> 
              <%=micropost.created_at %>
-             <%=micropost.topic %> </p>
-         <%end%>
+             <%=micropost.topic %> 
+             Views: <%=micropost.view %> </p>
+         <%end%></ol>
    </div>
  </div>
  <div class="rightcolumn">
