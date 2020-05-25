@@ -13,6 +13,7 @@ class User < ApplicationRecord
     validates:mobile, presence: true, length: { minimum: 10, maximum: 13 }
     mount_uploader :picture, PictureUploader
     mount_uploader :card_image, PictureUploader
+
     def self.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
