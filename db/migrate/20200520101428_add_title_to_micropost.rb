@@ -1,5 +1,6 @@
 class AddTitleToMicropost < ActiveRecord::Migration[5.2]
   def change
-    add_column :microposts, :title, :string
-  end
+    if column_exists? add_column :microposts,
+      remove_column :microposts, :title, :string
+    end
 end
