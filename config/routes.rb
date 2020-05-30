@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'static_pages#home'
 
   get 'sessions/new'
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
   get'/signup' , to:'users#new'
   get'/profile' , to:'users#show'
   get'/edit' , to:'users#edit'
+
+  resources :password_resets, only: [:new,:create,:edit,:update]
  
   get 'edit/editPassword', :to => 'users#editPassword'
 
