@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     get 'edit/editPassword', :to => 'users#editPassword'
     get 'edit/editVerification', :to => 'users#editVerification'
     get 'edit/editAvatar', :to => 'users#editAvatar'
+    get 'myprofile/myComments', :to => 'users#allUserComment'
+    get 'myprofile/commentToMe', :to => 'users#commentToUser'
     get '/myPost', :to => 'users#myPost'
+
   end
   get'/login' , to:'sessions#new'
   post'/login', to:'sessions#create'

@@ -43,6 +43,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id]) 
   end
 
+  def allUserComment
+    @user = User.find(params[:user_id]) 
+    @microposts=Micropost.all
+    @comments = Comment.all
+  end
+
+  def commentToUser
+    @user = User.find(params[:user_id]) 
+    @microposts=Micropost.where(:user_id==current_user.id) 
+    @comments = Comment.all
+  end
+
   def update
     @user = User.find(params[:id]) 
     if @user.update_attributes(user_params)

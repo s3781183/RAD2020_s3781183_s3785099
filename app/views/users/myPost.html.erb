@@ -4,7 +4,7 @@
 <%=render 'sidebar'%>
 <div class="col-sm-6 navbar">
 <% if @user.microposts.any?%>
-<h3> Microposts (<%=@user.microposts.count%>)</h3>
+<h3> Posts (<%=@user.microposts.count%>)</h3>
 <ol class="microposts">
 <%=render @user.microposts%>
 </ol>
