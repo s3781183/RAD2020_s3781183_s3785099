@@ -175,6 +175,20 @@ footer {
       }
     }
   }
+
+  .content .sidebar{
+    width: 30%;
+    float: left;
+    height:300 px;
+  }
+
+  .content .sidebar .section{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
   .gravatar{
     float:left;
     margin-right:10px;
@@ -245,6 +259,17 @@ footer {
     border-radius: 50px;
     border: 1px solid rgb(143, 143, 143)
   }
+
+  .checkbox{
+    margin-top:-10px;
+    margin-bottom:10px;
+    span{margin-left:20px;
+      font-weight:normal;}
+    }
+    #session_remember_me{
+      width:auto;
+      margin-left:0;
+    }
 
 /*microposts*/
 .microposts{

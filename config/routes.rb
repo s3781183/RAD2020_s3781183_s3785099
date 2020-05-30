@@ -31,4 +31,5 @@ Rails.application.routes.draw do
 
   get '/micropost', to: 'microposts#new'
   get '/topic', to: 'static_pages#topic'
+  get '/search', to: 'static_pages#search'
 end

@@ -1,0 +1,20 @@
+ <div class="row">
+ <div class="leftcolumn">
+ <%=link_to "Recent Post", '#', class: "button"%>
+<%=link_to "Selected Post",topic_path(:name => ""), class: "button"%>
+
+<%if logged_in?%>
+<%=link_to "My Setting", edit_user_path(current_user), class: "button"%>
+<%end%>
+
+ <div class="rightcolumn">
+ <%=link_to "New Post", new_micropost_path, class: "button"%>
+ </div> 
+
+<div class="rightcolumn">
+<div class="input-group-btn"> 
+<form class ="form-inline my-2 my-lg-0"action="/search">
+<input class= "form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search" action="/search">
+ 
+<%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+</form> </div> </div>

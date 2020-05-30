@@ -7,4 +7,6 @@ class ApplicationController < ActionController::Base
   def update_last_active
       current_user.update_attribute(:last_active, Time.now)
   end
+
+  
 end
