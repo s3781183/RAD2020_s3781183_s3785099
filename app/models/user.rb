@@ -8,7 +8,6 @@ class User < ApplicationRecord
     validates :email,presence: true,length:{maximum:255}, format:{with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
     has_secure_password
     validate :picture_size
-
     validates:password, presence: true, length: { minimum: 8 ,maximum: 20 }, allow_nil: true
     validates:mobile, presence: true, length: { minimum: 10, maximum: 13 }
     mount_uploader :picture, PictureUploader
@@ -38,7 +37,7 @@ class User < ApplicationRecord
 
     def remember
         self.remember_token=User.new_token
-        update_attribute(:remember_digest,User.digest(remember_token))
+        update_attribute(:remember_digest, User.digest(remember_token))
     end
 
     def authenticated?(remember_token)
@@ -51,7 +50,7 @@ class User < ApplicationRecord
     end
 
    def forget
-    update_attribute(:remember_digest,nil)
+    update_attribute(:remember_digest, nil)
   end
    private
 # Validates the size of an uploaded picture.
