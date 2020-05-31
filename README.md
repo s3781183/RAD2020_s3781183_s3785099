@@ -19,7 +19,7 @@ Si Long Leong Time:
 Project,Duration
 RAD,36:59:32
 
-Rochelle Balasuriya Time:
+Ruchelle Balasuriya Time:
 Project,Duration
 RAD,35:54:00
 
