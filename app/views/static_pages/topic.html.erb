@@ -3,7 +3,7 @@
 <%=render 'header'%>
    <div class="card">
       <h5>Selected Post</h5>
-       <% @microposts.each do |micropost|%>
+       <% @filterMicroposts.each do |micropost|%>
        <ol class="microposts">
             <br>  <p> <%=link_to gravatar_for(micropost.user,size:55), micropost.user%> 
             <p> <h5><%=link_to micropost.title , micropost,micropost: micropost%></h5></p>
