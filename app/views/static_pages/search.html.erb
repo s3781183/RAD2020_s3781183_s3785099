@@ -3,7 +3,7 @@
 <%=render 'header'%>
    <div class="card">
      
-      <h5>Search Results</h5>
+      <h5>Search Results for "<%=@param%>"</h5>
        <% @filterMicroposts.each do |micropost|%>
        <ol class="microposts">
             <br>  <p> <%=link_to gravatar_for(micropost.user,size:55), micropost.user%> 

@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
     end
 
     def search
+        @param= params[:q]
         @parameter = params[:q].downcase 
         @filterMicroposts = Micropost.where("lower(title) LIKE ? or lower(content) LIKE ?","%"+@parameter+" %","%"+@parameter+" %")
         @users = User.all
