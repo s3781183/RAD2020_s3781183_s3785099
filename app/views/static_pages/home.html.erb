@@ -11,7 +11,8 @@
            <p>  <%=link_to micropost.user.email , micropost.user%> 
              <%=micropost.created_at %>
              <%=micropost.topic %> 
-             Views: <%=micropost.view %> </p>
+             Views: <%=micropost.view %>
+             Comments: <%=micropost.comments.count %></p>
          <%end%></ol>
    </div>
  </div>
@@ -29,8 +30,8 @@
      <%=link_to "V.R.", topic_path(:name => "V.R."), class: "round_button"%>
 <br><br>
      <h3>Post</h3>
-      <% @microposts.each do |micropost|%>
-             <p><%=link_to micropost.title, micropost,micropost: micropost%></p>
+      <% @most.each do |micropost|%>
+             <p><%=link_to micropost.title, micropost,micropost: micropost%>
          <%end%>
  <br>
    <h3>Links</h3>
