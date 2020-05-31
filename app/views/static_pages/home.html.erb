@@ -16,29 +16,5 @@
          <%end%></ol>
    </div>
  </div>
-   <div class="card">
-     <h3>Recent Members</h3>
-     <% @recentUsers.each do |user|%>
-      <p><%=link_to gravatar_for(user,size:50) , user%></p>
-     <%end%>  
-        </div>
-   <div class="card"><br>
-     <h3>Topic</h3>
-     <%=link_to "A.I", topic_path(:name => "A.I"), class: "round_button"%>
-     <%=link_to "Game", topic_path(:name=>  "Game"), class: "round_button"%>
-     <%=link_to "Rmit", topic_path(:name => "Rmit"), class: "round_button"%>
-     <%=link_to "V.R.", topic_path(:name => "V.R."), class: "round_button"%>
-<br><br>
-     <h3>Post</h3>
-      <% @most.each do |micropost|%>
-             <p><%=link_to micropost.title, micropost,micropost: micropost%>
-         <%end%>
- <br>
-   <h3>Links</h3>
-   <%=link_to "Rails", '#', class: "round_button"%>
-   <%=link_to "Rmit", '#', class: "round_button"%>
-   <%=link_to "Docs.", '#', class: "round_button"%>
-
- </div>
-</div>
+ <%=render 'rightbar'%>
 

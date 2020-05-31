@@ -1,7 +1,7 @@
+<div class="rightcolumn">
+<div class="col-md-9">
 <p id="notice"><%= notice %></p>
-
 <br><br>
-
     <p>
           <strong>Topic:</strong>
           <%= @micropost.topic%>
@@ -36,5 +36,11 @@
 
     <%= link_to 'Edit', edit_micropost_path(@micropost) %> 
     <%= link_to 'Back', microposts_path %>
-     <% end %>
-<% end %>
+    <% end %>
+  </div>
+  </div>
+
+
+  <div class="col-md-9">
+  <%=render 'static_pages/rightbar'%>
+</div>
