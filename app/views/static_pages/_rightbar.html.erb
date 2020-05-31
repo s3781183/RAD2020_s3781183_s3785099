@@ -4,7 +4,7 @@
       <p><%=link_to gravatar_for(user,size:50) , user%></p>
      <%end%>  
         </div>
-   <div class="card"><br>
+   <div class="card"><br><br>
      <h3>Topic</h3>
      <%=link_to "A.I", topic_path(:name => "A.I"), class: "round_button"%>
      <%=link_to "Game", topic_path(:name=>  "Game"), class: "round_button"%>
@@ -13,7 +13,8 @@
 <br><br>
      <h3>Post</h3>
       <% @microposts.each do |micropost|%>
-             <p><%=link_to micropost.title, micropost,micropost: micropost%></p>
+             <p><%=link_to micropost.title, micropost,micropost: micropost%>
+             Views: <%=micropost.view %></p>
          <%end%>
  <br>
    <h3>Links</h3>

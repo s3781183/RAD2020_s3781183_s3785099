@@ -10,7 +10,8 @@
            <p>  <%=link_to micropost.user.email , micropost.user%> 
              <%=micropost.created_at %>
              <%=micropost.topic %> 
-             Views: <%=micropost.view %> </p>
+              Views: <%=micropost.view %>
+             Comments: <%=micropost.comments.count %></p>
          <%end%></ol>
       
    </div>

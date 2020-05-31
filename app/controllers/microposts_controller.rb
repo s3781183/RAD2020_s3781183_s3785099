@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
   # GET /microposts/1
   # GET /microposts/1.json
   def show
-    # @micropost.view += 1
+    @micropost.view += 1
     @recentUsers = User.where("last_active > ?", 30.days.ago).limit(12)
     @microposts = Micropost.all
     @micropost.save
