@@ -6,12 +6,13 @@
   <br>
   <%= @user.email %>
   <h2>
-  <%= @user.created_at.strftime("%d-%m-%Y") %>
-  <% if @user.city!=nil%>
-  <%= @user.city %>
-  <%end%>
-  </h2>        
-  </h1>
+  <pre class="card">
+  <%= @user.created_at.strftime("%d-%m-%Y") %>           <% if @user.city!=nil%>  <%= @user.city %>   <%end%>
+  </pre>
+  </h2>
+
+
+</h1>
 </section>
 <div class="right-half">
       <h2>Recent Post</h2>
@@ -27,7 +28,7 @@
     <% if @user.comments.any?%>
       <h3>Comments (<%=@user.comments.count%>)</h3>
        <p><%=render @user.comments%> </p>
-   </div>
+</div>
     <%end%>
 </div>
 
