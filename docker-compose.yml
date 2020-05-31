@@ -2,7 +2,7 @@ version: '3'
 services:
   db:
     image: postgres
-    environment: 
+    environment: "POSTGRES_HOST_AUTH_METHOD=trust"
       POSTGRES_USER: 'alex'
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
