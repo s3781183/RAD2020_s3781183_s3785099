@@ -21,7 +21,7 @@ def destroy
     @comment = @micropost.comments.find(params[:id])
     @comment.destroy
     respond_to do |format|
-    format.html { redirect_to @micropost, notice: 'Comment was successfully deleted.' }
+    format.html { redirect_to user_myprofile_myComments_path(@micropost.user), notice: 'Comment was successfully deleted.' }
     format.json { head :no_body }
 
 end
