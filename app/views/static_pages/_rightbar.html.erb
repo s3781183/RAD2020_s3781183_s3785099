@@ -1,0 +1,27 @@
+<div class="card">
+     <h3>Recent Members</h3>
+     <% @recentUsers.each do |user|%>
+      <p><%=link_to gravatar_for(user,size:50) , user%></p>
+     <%end%>  
+        </div>
+   <div class="card"><br>
+     <h3>Topic</h3>
+     <%=link_to "A.I", topic_path(:name => "A.I"), class: "round_button"%>
+     <%=link_to "Game", topic_path(:name=>  "Game"), class: "round_button"%>
+     <%=link_to "Rmit", topic_path(:name => "Rmit"), class: "round_button"%>
+     <%=link_to "V.R.", topic_path(:name => "V.R."), class: "round_button"%>
+<br><br>
+     <h3>Post</h3>
+      <% @microposts.each do |micropost|%>
+             <p><%=link_to micropost.title, micropost,micropost: micropost%></p>
+         <%end%>
+ <br>
+   <h3>Links</h3>
+   <%=link_to "Rails", 'https://rubyonrails.org/', class: "round_button"%>
+   <%=link_to "Rmit", 'https://www.rmit.edu.au/', class: "round_button"%>
+   <%=link_to "Heroku", 'https://dashboard.heroku.com/apps/rad2020-s3781183-s3785099', class: "round_button"%>
+   <%=link_to "GitHub", 'https://github.com/s3781183/RAD2020_s3781183_s3785099', class: "round_button"%>
+
+ </div>
+</div>
+

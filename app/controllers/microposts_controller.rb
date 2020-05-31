@@ -12,7 +12,9 @@ class MicropostsController < ApplicationController
   # GET /microposts/1
   # GET /microposts/1.json
   def show
-    @micropost.view  +=1
+    # @micropost.view += 1
+    @recentUsers = User.where("last_active > ?", 30.days.ago).limit(12)
+    @microposts = Micropost.all
     @micropost.save
   end
 
@@ -63,7 +65,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     respond_to do |format|
-      format.html { redirect_to microposts_url, notice: 'Micropost was successfully destroyed.' }
+      format.html {redirect_to user_myPost_path(@micropost.user), notice: 'Micropost was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

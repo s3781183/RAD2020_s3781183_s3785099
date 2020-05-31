@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_103711) do
+ActiveRecord::Schema.define(version: 2020_05_31_031851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_103711) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "topic"
-    t.integer "view", default: 0
+    t.integer "view"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_103711) do
     t.string "card_type"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "info"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
